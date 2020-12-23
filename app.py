@@ -7,6 +7,7 @@ from fastai.vision import *
 from pathlib import Path
 import cv2
 
+
 model_food_not_food_pkl = "foodnofood1.pkl"
 path = Path(__file__).parent
 model_check_if_food = load_learner(path, model_food_not_food_pkl)
@@ -36,5 +37,4 @@ def add_headers(response):
 
 
 if __name__ == "__main__":
-    port=int(os.environ.get('PORT',5000))
-    app.run(port=port,host='0.0.0.0')
+    app.run(threaded=True)

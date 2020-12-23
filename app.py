@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return jsonify("ping!")
+    return 'Hello World'
 
 
 @app.route('/check',methods=['POST'])
@@ -29,11 +29,11 @@ def check():
     prediction = model_check_if_food.predict(img)[0]
     return jsonify({'result': str(prediction)})
 
-@app.after_request
-def add_headers(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    return response
+# @app.after_request
+# def add_headers(response):
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+#     return response
 
 
 if __name__ == "__main__":

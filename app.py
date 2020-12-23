@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello World'
+    return '<h1>Welcome</h1>'
 
 
 @app.route('/check',methods=['POST'])

@@ -11,7 +11,7 @@ model_food_not_food_pkl = "foodnofood1.pkl"
 path = Path(__file__).parent
 model_check_if_food = load_learner(path, model_food_not_food_pkl)
 app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app)
+
 
 
 
@@ -37,4 +37,4 @@ def add_headers(response):
 
 if __name__ == "__main__":
     port=int(os.environ.get('PORT',5000))
-    app.run(port=port,debug=True,use_reloader=False)
+    app.run(port=port,host='0.0.0.0')

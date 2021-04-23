@@ -25,7 +25,7 @@ def home():
 
 @app.route('/check',methods=['POST'])
 def check():
-    data = request.files["image"]
+    data = request.form.get('image','')
     img_bytes = (data.read())
     img = open_image(BytesIO(img_bytes))
     prediction = model_check_if_food.predict(img)[0]
